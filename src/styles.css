@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+.side {
+  display:inline-block;
+}
+body {
+  min-width: 1000px;
+}
