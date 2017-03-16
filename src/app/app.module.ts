@@ -6,8 +6,8 @@ import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
-import { CreateNewDinnerComponent } from './create-new-dinner.component';
-import { MyDinnerComponent } from './my-dinner.component';
+import { CreateNewDinnerComponent } from './create-new-dinner/create-new-dinner.component';
+import { MyDinnerComponent } from './my-dinner/my-dinner.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
