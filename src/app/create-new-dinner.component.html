@@ -1,16 +1,13 @@
-<body style="margin:0px">
-  <div style="margin-top:150px;width:420px">
-  	<div class="transbox">
-  		<p> A Home Dinner Service </p>
-  		<div class="line-separator"></div>
-
-  		<div style="margin: 5%; opacity:1;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis elit eget mauris condimentum tempor. Maecenas aliquam viverra est, sit amet ullamcorper felis varius ac. Curabitur rutrum neque sit amet enim pretium porta. Nam et metus tortor.
-  		</div>
-  		<p>start quickly!</p>
-
-  		<div style="margin: 5%; margin-top: 7px">
-  			<a md-raised-button routerLink=".">Create New Dinner</a>
-  		</div>
-  	</div>
+<div>
+  <div class="transbox">
+    <div class="boxcontent">
+      <div class="largetext">{{title}}</div>
+    </div>
+    <div class="line-separator"></div>
+    <div class="boxcontent">
+      <p>{{welcomeMessage}}</p>
+      <div class="largetext">start quickly!</div><br />
+      <a md-raised-button routerLink="/my-dinner">Create New Dinner</a>
+    </div>
   </div>
-</body>
+</div>

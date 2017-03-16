@@ -1,7 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
 .side {
   display:inline-block;
 }
+
 body {
   min-width: 1000px;
+}
+html, body {
+  height: 100%;
+  margin: 0
+}
+
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.box .row.header {
+  flex: 0 1 auto;
+}
+
+/* Special styles for components */
+create-new-dinner {
+  flex: 1 1 auto; /* fill the screen vertically */
+  background: url("https://s-media-cache-ak0.pinimg.com/originals/f7/5a/f5/f75af58fa43c9e8f936fdab5defa3d32.jpg");
+  background-size: cover;
 }

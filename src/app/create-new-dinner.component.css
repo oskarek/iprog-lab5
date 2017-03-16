@@ -1,49 +1,19 @@
-body {
-	background: url("http://ckphu.com/site/wp-content/uploads/2012/07/people-eating.jpg") no-repeat center center fixed;
-  /*position: fixed;
-    bottom: 0;
-    right: 0;
-    top: 90px;*/
-  position:absolute;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	height: 100%;
-	min-width: 1000px;
-	width: 100%;
-}
-div.transbox {
-	margin: 30px;
-	background-color: #ffffff;
+.transbox {
+	width: 420px;
+	margin-left: 30px;
+	margin-top: 150px;
+	background-color: white;
 	border: 1px solid black;
 	opacity: 0.6;
-	filter: alpha(opacity=60);
 }
-div.transboxYellow {
-	background-color: #FFE029;
-	border: 2px;
-	border-color: #000000;
-	border-style: solid;
-	opacity: 0.6;
-	height: 90px;
-	margin-right: 1px;
-	margin-left: 1px;
-	margin-top: 1px;
-
+.boxcontent {
+	margin: 15px;
 }
-div.transbox p {
-	margin: 5%;
+.largetext {
 	font-size: 20px;
 	font-family: "Comic Sans MS", cursive, sans-serif;
-	color: #000000;
 }
-div.transbox l {
-	margin: 5%;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-}
-div.line-separator{
+.line-separator {
 	height:1px;
 	background:#717171;
-	border-bottom:1px solid #313030;
 }
