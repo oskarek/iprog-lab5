@@ -26,6 +26,6 @@ html, body {
 /* Special styles for components */
 create-new-dinner {
   flex: 1 1 auto; /* fill the screen vertically */
-  background: url("https://s-media-cache-ak0.pinimg.com/originals/f7/5a/f5/f75af58fa43c9e8f936fdab5defa3d32.jpg");
+  background: url("assets/img/people-eating.jpg");
   background-size: cover;
 }

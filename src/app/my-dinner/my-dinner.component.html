@@ -23,30 +23,24 @@
     <button type="button" class="myButton" style="margin-left:25px;margin-top:25px;margin-right:25px;" id="confirmButton">Confirm Dinner</button>
   </div>
 </div> -->
-<div style="background-color:gray">
-  <div style="margin-left:20px;margin-top:30px">
+<div class="my-dinner-box">
+  <div class="boxcontent">
+    <h2>My Dinner</h2><br />
     <md-select placeholder="Number of guests" [(ngModel)]="numberOfGuests">
-      <md-option *ngFor="let num of nums" [value]="num">
-        {{ num }}
+      <md-option *ngFor="let n of numberOfGuestsOptions" [value]="n">
+        {{ n }}
       </md-option>
     </md-select>
+
   </div>
-  <div>{{numberOfGuests}}</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
-  <div>HEJ</div>
+  <table style="width:100%">
+    <tr>
+      <th><b>Dish name</b></th>
+      <th><b>Cost</b></th>
+    </tr>
+    <tr *ngFor='let dish of dishes'>
+      <td>{{dish.name}}</td>
+      <td>${{dish.unitCost * numberOfGuests}}</td>
+    </tr>
+  </table>
 </div>
