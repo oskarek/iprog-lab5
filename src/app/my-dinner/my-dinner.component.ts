@@ -14,7 +14,7 @@ export class MyDinnerComponent implements OnInit {
   }
 
   dishes: Dish[] = [
-    {name: 'Garlic bread that is super tasty and nice', type: 'appetizer', unitCost: 40},
+    {name: 'Garlic bread', type: 'appetizer', unitCost: 40},
     {name: 'Hamburger', type: 'main dish', unitCost: 150},
     {name: 'Cake', type: 'dessert', unitCost: 85}
   ]
