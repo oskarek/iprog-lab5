@@ -1,3 +1,4 @@
+<!-- OLD VERSION -->
 <!-- <div id = "myDinnerView" class="col-lg-2 col-md-2 col-xs-2" style="padding:0; border-right:solid 1px;height:100%">
   <div style="margin-left:5%">
     <h3 style="margin:auto;margin-top:10px;text-align:center;font-family:Palatino">My Dinner</h3>
@@ -33,14 +34,21 @@
     </md-select>
 
   </div>
-  <table style="width:100%">
-    <tr>
-      <th><b>Dish name</b></th>
-      <th><b>Cost</b></th>
-    </tr>
-    <tr *ngFor='let dish of dishes'>
-      <td>{{dish.name}}</td>
-      <td>${{dish.unitCost * numberOfGuests}}</td>
-    </tr>
-  </table>
+
+  <md-list>
+    <h3 md-subheader>Appetizers</h3>
+    <md-list-item *ngFor="let dish of getDishes('appetizer')">
+      <md-icon md-list-icon>restaurant</md-icon>
+      <h4 md-line>Name: {{dish.name}}</h4>
+      <p md-line class="demo-2">Cost: {{dish.unitCost * numberOfGuests}} </p>
+    </md-list-item>
+
+    <md-divider></md-divider>
+    <h3 md-subheader>Main Dishes</h3>
+    <md-list-item *ngFor="let dish of getDishes('main dish')">
+      <md-icon md-list-icon>restaurant</md-icon>
+      <h4 md-line>Name: {{dish.name}}</h4>
+      <p md-line class="demo-2">Cost: {{dish.unitCost * numberOfGuests}} </p>
+    </md-list-item>
+  </md-list>
 </div>
