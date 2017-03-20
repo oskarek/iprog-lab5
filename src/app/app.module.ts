@@ -12,13 +12,25 @@ import { MyDinnerComponent } from './my-dinner/my-dinner.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SelectDishComponent } from './select-dish/select-dish.component';
+import { SearchComponent } from './search/search.component';
+import { AboutComponent } from './about/about.component';
+import { DishDetailComponent } from './dish-detail/dish-detail.component';
+import { OverviewComponent } from './overview/overview.component';
+import { PreparationComponent } from './preparation/preparation.component';
+import { OverviewHeaderComponent } from './overview-header/overview-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateNewDinnerComponent,
     MyDinnerComponent,
-    SelectDishComponent
+    SelectDishComponent,
+    SearchComponent,
+    AboutComponent,
+    DishDetailComponent,
+    OverviewComponent,
+    PreparationComponent,
+    OverviewHeaderComponent
   ],
   imports: [
     BrowserModule,
