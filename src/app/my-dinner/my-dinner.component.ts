@@ -14,15 +14,23 @@ export class MyDinnerComponent implements OnInit {
   ngOnInit() {
   }
 
-  // dishes: Dish[] = [
-  //   {name: 'Garlic bread', type: 'appetizer', unitCost: 40},
-  //   {name: 'Hamburger', type: 'main dish', unitCost: 150},
-  //   {name: 'Cake', type: 'dessert', unitCost: 85}
-  // ]
+  dishes: Dish[] = [
+    {name: 'Garlic bread with lots of ketchup', type: 'appetizer', unitCost: 40},
+    {name: 'Hamburger', type: 'main dish', unitCost: 150},
+    {name: 'Cake', type: 'dessert', unitCost: 85},
+  ]
   numberOfGuestsOptions = [1,2,3,4,5,6,7,8,9,10,11,12];
   numberOfGuests = 0;
 
-  // getDishes(type: string): Dish[] {
-  //   return this.dishes.filter(dish => dish.type == type);
-  // }
+  getDishes(type: string): Dish[] {
+    return this.dishes.filter(dish => dish.type == type);
+  }
+  getTotalCost() {
+    return this.numberOfGuests * this.dishes.map(dish=>dish.unitCost)
+    .reduce((a,b) => a + b);
+  }
+
+  numberOfGuestsOptions = [1,2,3,4,5,6,7,8,9,10,11,12];
+  numberOfGuests = 0;
+
 }

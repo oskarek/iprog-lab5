@@ -24,7 +24,7 @@
     <button type="button" class="myButton" style="margin-left:25px;margin-top:25px;margin-right:25px;" id="confirmButton">Confirm Dinner</button>
   </div>
 </div> -->
-<div class="my-dinner-box">
+<div class="my-dinner-box" style="width:280px">
   <div class="boxcontent">
     <h2>My Dinner</h2><br />
     <md-select placeholder="Number of guests" [(ngModel)]="numberOfGuests">
@@ -34,21 +34,42 @@
     </md-select>
 
   </div>
-
   <md-list>
-    <h3 md-subheader>Appetizers</h3>
-    <md-list-item *ngFor="let dish of getDishes('appetizer')">
-      <md-icon md-list-icon>restaurant</md-icon>
-      <h4 md-line>Name: {{dish.name}}</h4>
-      <p md-line class="demo-2">Cost: {{dish.unitCost * numberOfGuests}} </p>
-    </md-list-item>
+    <div *ngIf="!(getDishes('appetizer').length == 0)">
+      <h3 md-subheader>Appetizers</h3>
+      <md-list-item *ngFor="let dish of getDishes('appetizer')">
+        <h4 md-line style="white-space:normal">{{dish.name}}</h4>
+        <p md-line class="demo-2">{{dish.unitCost * numberOfGuests}} $</p>
+        <md-icon md-list-icon>delete</md-icon>
+      </md-list-item>
+    </div>
+
+    <div *ngIf="!(getDishes('main dish').length == 0)">
+      <md-divider></md-divider>
+      <h3 md-subheader>Main Dishes</h3>
+      <md-list-item *ngFor="let dish of getDishes('main dish')">
+        <h4 md-line style="white-space:normal">{{dish.name}}</h4>
+        <p md-line class="demo-2" style="margin-top:2px">{{dish.unitCost * numberOfGuests}} $</p>
+        <md-icon md-list-icon>delete</md-icon>
+      </md-list-item>
+    </div>
+
+    <div *ngIf="!(getDishes('dessert').length == 0)">
+      <md-divider></md-divider>
+      <h3 md-subheader>Desserts</h3>
+      <md-list-item *ngFor="let dish of getDishes('dessert')">
+        <h4 md-line style="white-space:normal">{{dish.name}}</h4>
+        <p md-line class="demo-2">{{dish.unitCost * numberOfGuests}} $</p>
+        <md-icon md-list-icon>delete</md-icon>
+      </md-list-item>
+    </div>
 
     <md-divider></md-divider>
-    <h3 md-subheader>Main Dishes</h3>
-    <md-list-item *ngFor="let dish of getDishes('main dish')">
-      <md-icon md-list-icon>restaurant</md-icon>
-      <h4 md-line>Name: {{dish.name}}</h4>
-      <p md-line class="demo-2">Cost: {{dish.unitCost * numberOfGuests}} </p>
-    </md-list-item>
+    <div fxLayoutAlign="center">
+      <h4>Total cost: {{getTotalCost()}} $</h4>
+    </div>
+    <div fxLayoutAlign="center">
+      <button md-raised-button routerLink="/overview" style="margin-top: 25px">Confirm dinner</button>
+    </div>
   </md-list>
 </div>

@@ -14,7 +14,15 @@ import { DishService } from './dish.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SelectDishComponent } from './select-dish/select-dish.component';
+
+import { SearchComponent } from './search/search.component';
+import { AboutComponent } from './about/about.component';
+import { DishDetailComponent } from './dish-detail/dish-detail.component';
+import { OverviewComponent } from './overview/overview.component';
+import { PreparationComponent } from './preparation/preparation.component';
+import { OverviewHeaderComponent } from './overview-header/overview-header.component';
 import { TestComponent } from './test/test.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +30,14 @@ import { TestComponent } from './test/test.component';
     CreateNewDinnerComponent,
     MyDinnerComponent,
     SelectDishComponent,
+    SearchComponent,
+    AboutComponent,
+    DishDetailComponent,
+    OverviewComponent,
+    PreparationComponent,
+    OverviewHeaderComponent
     TestComponent
+
   ],
   imports: [
     BrowserModule,
