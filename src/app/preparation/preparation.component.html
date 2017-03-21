@@ -1,2 +1,15 @@
 <overview-header></overview-header>
-
+<div fxLayout="column" fxLayoutAlign=" center">
+  <div style="width:100%" fxLayout="row" *ngFor="let dish of dishService.dishesInMenu">
+    <div fxFlex="50" fxLayout="row" style="margin:10px">
+      <img fxFlex="100px" style="height:100px" src="https://spoonacular.com/recipeImages/seared-salmon-fillet-770213.jpeg">
+      <div fxFlex fxLayout="column" fxFlexOffset="10px" fxLayoutAlign="start start">
+        <div>{{dish.name}}</div>
+        <div>Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor</div>
+      </div>
+    </div>
+    <div fxFlex="50" style="margin:10px">
+      Preparation
+    </div>
+  </div>
+</div>
