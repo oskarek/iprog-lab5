@@ -20,6 +20,7 @@ export class SearchComponent implements OnInit {
 
 
   ngOnInit() {
+    this.dishService.downloadDishes("main course", "pizza");
   }
 
 }
