@@ -43,6 +43,24 @@ function plusSeparatedString(s) {
   return s.split(" ").reduce((w1,w2) => `${w1}+${w2}`);
 }
 
+
+function fixLayoutDishes(array) {
+  var index = 0;
+  var cols = 4;
+  var x = Math.round(array.length/cols);
+  var layoutArray = new Array(x+1);
+  for(var p = 0; p<x; p++) {
+    layoutArray[p] = new Array(cols);
+    for (var i = 0; i < cols; i++) {
+      if(array[index] != undefined) {
+        layoutArray[p][i] = array[index]
+      }
+      index++;
+    }
+  }
+  return layoutArray;
+}
+
 @Injectable()
 export class DishService {
   private recipeUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
@@ -58,12 +76,13 @@ export class DishService {
   dishesInMenu: Dish[] = [];
   selectedDish = null;
   totalMenuPrice = 0;
-
+  layoutDishes;
   constructor(private http: Http) { }
 
-  setSelectedDish(id) {
-    this.getExtendedDish(id)
-      .then(dish => this.selectedDish = dish);
+  setSelectedDish(dish) {
+    this.selectedDish = dish;
+    // this.getExtendedDish(id)
+    //   .then(dish => this.selectedDish = dish);
   }
 
   //Returns the dish that is on the menu for selected type
@@ -94,6 +113,7 @@ export class DishService {
       .catch(this.handleError);
   }
 
+
   downloadDishes(type: string, query: string) {
     // empty dishes array before fetching new dishes
     this.dishes = [];
@@ -113,6 +133,7 @@ export class DishService {
       .then(dishes => {
         // update dishes array when download is complete
         this.dishes = dishes
+        this.layoutDishes = fixLayoutDishes(dishes);
         // also set isLoadingDishes to false
         this.isLoadingDishes = false
       })

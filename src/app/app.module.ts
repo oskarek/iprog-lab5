@@ -16,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SelectDishComponent } from './select-dish/select-dish.component';
 
 import { SearchComponent } from './search/search.component';
-import { AboutComponent } from './about/about.component';
+import { DishComponent } from './dish/dish.component';
 import { DishDetailComponent } from './dish-detail/dish-detail.component';
 import { OverviewComponent } from './overview/overview.component';
 import { PreparationComponent } from './preparation/preparation.component';
@@ -31,7 +31,7 @@ import { TestComponent } from './test/test.component';
     MyDinnerComponent,
     SelectDishComponent,
     SearchComponent,
-    AboutComponent,
+    DishComponent,
     DishDetailComponent,
     OverviewComponent,
     PreparationComponent,

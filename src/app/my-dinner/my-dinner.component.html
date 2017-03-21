@@ -1,4 +1,4 @@
-<div class="my-dinner-box" style="width:280px">
+<div class="my-dinner-box" style="width:99%;">
   <div class="boxcontent">
     <h2>My Dinner</h2><br />
     <md-select placeholder="Number of guests" [(ngModel)]="this.dishService.numberOfGuests">
@@ -10,16 +10,16 @@
   </div>
   <md-list>
     <h3 md-subheader>Menu</h3>
-    <md-list-item *ngFor="let dish of dishes">
+    <md-list-item *ngFor="let dish of this.dishService.dishesInMenu">
       <h4 md-line style="white-space:normal">{{dish.name}}</h4>
-      <p md-line class="demo-2">{{numberOfGuests}} $</p>
-      <md-icon md-list-icon>delete</md-icon>
+      <p md-line class="demo-2">{{this.dishService.getDishPrice(dish)}} $</p>
+      <md-icon md-list-icon style="cursor:pointer" (click)=deleteDish(dish)>delete</md-icon>
     </md-list-item>
 
 
     <md-divider></md-divider>
     <div fxLayoutAlign="center">
-      <h4>Total cost: {{this.dishService.totalMenuPrice}} $</h4>
+      <h4>Total cost: {{this.dishService.getTotalMenuPrice()}} $</h4>
     </div>
     <div fxLayoutAlign="center">
       <button md-raised-button routerLink="/overview" style="margin-top: 25px">Confirm dinner</button>

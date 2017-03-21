@@ -1,0 +1,36 @@
+<div fxLayout="row" fxFlex style="overflow:hidden">
+	<my-dinner></my-dinner>
+
+
+    <div>
+    	<div fxLayout="row" style="width:100%">
+	    	<button md-raised-button routerLink="/select-dish" style="margin: 5% 0 0 5%;height:50px">Back and edit dinner</button>
+
+	    	<button fxLayoutAlign="end" md-raised-button routerLink="/select-dish" (click)=addDish() style="margin: 5% 5% 0 5%;height:50px">Add dish to menu</button>
+	    </div>
+
+		<div fxLayout="row" fxFlex style="margin: 5% 0 0 5%">
+			<div fxLayout="column">
+				<h4 style="width:150px">{{dish.name}}</h4>
+				<img src="{{dish.imageUrl}}" style="width:150px;height:150px">
+				<div style="width: 250px">
+					<h4>Preparation</h4>
+					<p>{{dish.instructions}}</p>
+				</div>
+			</div>
+
+			<div style="margin-left:100px;width:300px;border:solid 1px;height:102%">
+				<md-list>
+
+					<h3 fxLayoutAlign="center">Ingredients</h3>
+					<md-list-item *ngFor="let ingredient of dish.ingredients" style="height:50px">
+						<h4 md-line style="white-space:normal">{{ingredient.amount * this.dishService.numberOfGuests}} {{ingredient.unit}}   {{ingredient.name}}</h4>
+	      				<p md-line class="demo-2">{{this.dishService.numberOfGuests}} $</p>
+	      				<md-divider></md-divider>
+					</md-list-item>
+				</md-list>
+			</div>
+		</div>
+	</div>
+
+</div>

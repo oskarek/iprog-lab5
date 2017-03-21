@@ -1,5 +1,6 @@
 import { Component, OnInit , Input, Output} from '@angular/core';
 import { DishService } from '../dish.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'search',
@@ -9,7 +10,7 @@ import { DishService } from '../dish.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(public dishService: DishService) { }
+  constructor(public dishService: DishService, public router: Router) { }
 
 	selectedFoodType: string;
 	keyWord: string;
@@ -19,8 +20,13 @@ export class SearchComponent implements OnInit {
 	"beverage", "sauce", "drink"];
 
 
-  ngOnInit() {
-    this.dishService.downloadDishes("main course", "pizza");
+  ngOnInit() {}
+
+  getInfo(dish) {
+    this.router.navigate(['/dish', dish.id]);
   }
 
+  searchDishes(){
+    this.dishService.downloadDishes(this.selectedFoodType, this.keyWord);
+  }
 }

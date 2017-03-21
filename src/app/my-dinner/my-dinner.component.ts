@@ -19,4 +19,8 @@ export class MyDinnerComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  deleteDish(dish) {
+    this.dishService.removeDishFromMenu(dish.id);    
+  }
 }
