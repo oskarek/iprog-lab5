@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Dish } from '../model/dish';
+import { DishService } from '../dish.service';
 
 @Component({
   selector: 'my-dinner',
@@ -8,7 +9,7 @@ import { Dish } from '../model/dish';
 })
 export class MyDinnerComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dishService: DishService) { }
 
   ngOnInit() {
   }
@@ -28,4 +29,8 @@ export class MyDinnerComponent implements OnInit {
     return this.numberOfGuests * this.dishes.map(dish=>dish.unitCost)
     .reduce((a,b) => a + b);
   }
+
+  numberOfGuestsOptions = [1,2,3,4,5,6,7,8,9,10,11,12];
+  numberOfGuests = 0;
+
 }
