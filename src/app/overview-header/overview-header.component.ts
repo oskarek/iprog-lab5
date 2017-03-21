@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MyDinnerComponent } from '../my-dinner/my-dinner.component';
 
 @Component({
   selector: 'overview-header',
