@@ -1,7 +1,13 @@
+import { Ingredient } from './ingredient';
+
 export class Dish {
+  id: number;
   name: string;
+  imageUrl: string;
   type: string;
-  unitCost: number;
+  ingredients: Ingredient[] = [];
+  pricePerServing: number;
+  instructions: string;
 }
 // export enum DishType {
 //   Appetizer,

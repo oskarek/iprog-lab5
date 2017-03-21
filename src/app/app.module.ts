@@ -10,15 +10,19 @@ import { AppComponent } from './app.component';
 import { CreateNewDinnerComponent } from './create-new-dinner/create-new-dinner.component';
 import { MyDinnerComponent } from './my-dinner/my-dinner.component';
 
+import { DishService } from './dish.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { SelectDishComponent } from './select-dish/select-dish.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateNewDinnerComponent,
     MyDinnerComponent,
-    SelectDishComponent
+    SelectDishComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,9 @@ import { SelectDishComponent } from './select-dish/select-dish.component';
     FlexLayoutModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    DishService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
