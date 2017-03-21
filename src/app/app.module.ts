@@ -35,7 +35,7 @@ import { TestComponent } from './test/test.component';
     DishDetailComponent,
     OverviewComponent,
     PreparationComponent,
-    OverviewHeaderComponent
+    OverviewHeaderComponent,
     TestComponent
 
   ],
