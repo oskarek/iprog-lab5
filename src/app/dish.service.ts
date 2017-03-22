@@ -17,7 +17,6 @@ function plusSeparatedString(s) {
 export class DishService {
   private recipeUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
   private detailedRecipeUrl = (id) => `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information`;
-  private imagesUrl = "https://spoonacular.com/recipeImages/"
   private headers = new Headers({'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'});
 
   isLoadingDishes = false;
@@ -152,6 +151,9 @@ export class DishService {
     dish.id = jsonDishData.id as number;
     dish.name = jsonDishData.title as string;
     dish.imageUrl = jsonDishData.image as string;
+    if (dish.imageUrl != undefined && !dish.imageUrl.startsWith("http")) {
+      dish.imageUrl = `https://spoonacular.com/recipeImages/${dish.imageUrl}`;
+    }
     const ingredientsData = jsonDishData.extendedIngredients as any[];
     if (ingredientsData != undefined) {
       dish.ingredients = ingredientsData.map(this.ingredientFromJsonIngredientData);
