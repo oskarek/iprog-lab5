@@ -1,5 +1,6 @@
 import { Component, OnInit , Input, Output} from '@angular/core';
 import { DishService } from '../dish.service';
+import { DishCardComponent } from '../dish-card/dish-card.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,8 +16,8 @@ export class SearchComponent implements OnInit {
 	selectedFoodType: string;
 	keyWord: string;
 
-	foodTypes = ["appetizer", "main course", "dessert", 
-	"side dish", "salad", "bread", "breakfast", "soup", 
+	foodTypes = ["appetizer", "main course", "dessert",
+	"side dish", "salad", "bread", "breakfast", "soup",
 	"beverage", "sauce", "drink"];
 
 

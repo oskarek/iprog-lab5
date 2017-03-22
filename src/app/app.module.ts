@@ -22,6 +22,7 @@ import { OverviewComponent } from './overview/overview.component';
 import { PreparationComponent } from './preparation/preparation.component';
 import { OverviewHeaderComponent } from './overview-header/overview-header.component';
 import { TestComponent } from './test/test.component';
+import { DishCardComponent } from './dish-card/dish-card.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { TestComponent } from './test/test.component';
     OverviewComponent,
     PreparationComponent,
     OverviewHeaderComponent,
-    TestComponent
+    TestComponent,
+    DishCardComponent
 
   ],
   imports: [
