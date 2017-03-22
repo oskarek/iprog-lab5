@@ -15,7 +15,7 @@
 				<img src="{{dish.imageUrl}}" style="width:150px;height:150px">
 				<div style="width: 250px">
 					<h4>Preparation</h4>
-					<p>{{dish.instructions}}</p>
+					<div [innerHTML]="dish.instructions"></div>
 				</div>
 			</div>
 
