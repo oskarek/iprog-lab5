@@ -7,58 +7,10 @@ import { Ingredient } from './model/ingredient';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
-// function to convert ingredient API response data to an Ingredient object
-function ingredientFromJsonIngredientData(jsonIngredientData: any): Ingredient {
-  if (jsonIngredientData == undefined) return undefined;
-
-  var ingredient = new Ingredient();
-  ingredient.id = jsonIngredientData.id as number;
-  ingredient.name = jsonIngredientData.name as string;
-  ingredient.imageUrl = jsonIngredientData.image as string;
-  ingredient.amount = jsonIngredientData.amount as number;
-  ingredient.unit = jsonIngredientData.unit as string;
-  return ingredient;
-}
-
-// function to convert dish API response data to a Dish object
-function dishFromJsonDishData(jsonDishData: any): Dish {
-  if (jsonDishData == undefined) return undefined;
-
-  var dish = new Dish();
-  dish.id = jsonDishData.id as number;
-  dish.name = jsonDishData.title as string;
-  dish.imageUrl = jsonDishData.image as string;
-  const ingredientsData = jsonDishData.extendedIngredients as any[];
-  if (ingredientsData != undefined) {
-    dish.ingredients = ingredientsData.map(ingredientFromJsonIngredientData);
-  }
-  dish.pricePerServing = jsonDishData.pricePerServing as number;
-  dish.instructions = jsonDishData.instructions as string;
-  return dish;
-}
-
 // add plus signs instead of spaces to a string
 function plusSeparatedString(s) {
   if(s == undefined || s == "") { return ""; }
   return s.split(" ").reduce((w1,w2) => `${w1}+${w2}`);
-}
-
-
-function fixLayoutDishes(array) {
-  var index = 0;
-  var cols = 4;
-  var x = Math.round(array.length/cols);
-  var layoutArray = new Array(x+1);
-  for(var p = 0; p<x; p++) {
-    layoutArray[p] = new Array(cols);
-    for (var i = 0; i < cols; i++) {
-      if(array[index] != undefined) {
-        layoutArray[p][i] = array[index]
-      }
-      index++;
-    }
-  }
-  return layoutArray;
 }
 
 @Injectable()
@@ -106,7 +58,7 @@ export class DishService {
     const url = this.detailedRecipeUrl(id);
     return this.http.get(url, {headers: this.headers})
       // convert the response data to a dish object
-      .map(resp => dishFromJsonDishData(resp.json()))
+      .map(resp => this.dishFromJsonDishData(resp.json()))
       // convert the OBservable to a Promise
       .toPromise()
       // handle any errors in the request
@@ -126,7 +78,7 @@ export class DishService {
       // convert the response data to an array of dishes
       .map(resp => {
         const list = resp.json().results as any[];
-        return list.map(dishFromJsonDishData);
+        return list.map(this.dishFromJsonDishData);
       })
       // convert the Observable to a promise
       .toPromise()
@@ -179,4 +131,50 @@ export class DishService {
     return Promise.reject(error.message || error);
   }
 
+  // function to convert ingredient API response data to an Ingredient object
+  private ingredientFromJsonIngredientData(jsonIngredientData: any): Ingredient {
+    if (jsonIngredientData == undefined) return undefined;
+
+    var ingredient = new Ingredient();
+    ingredient.id = jsonIngredientData.id as number;
+    ingredient.name = jsonIngredientData.name as string;
+    ingredient.imageUrl = jsonIngredientData.image as string;
+    ingredient.amount = jsonIngredientData.amount as number;
+    ingredient.unit = jsonIngredientData.unit as string;
+    return ingredient;
+  }
+
+  // function to convert dish API response data to a Dish object
+  private dishFromJsonDishData(jsonDishData: any): Dish {
+    if (jsonDishData == undefined) return undefined;
+
+    var dish = new Dish();
+    dish.id = jsonDishData.id as number;
+    dish.name = jsonDishData.title as string;
+    dish.imageUrl = jsonDishData.image as string;
+    const ingredientsData = jsonDishData.extendedIngredients as any[];
+    if (ingredientsData != undefined) {
+      dish.ingredients = ingredientsData.map(this.ingredientFromJsonIngredientData);
+    }
+    dish.pricePerServing = jsonDishData.pricePerServing as number;
+    dish.instructions = jsonDishData.instructions as string;
+    return dish;
+  }
+
+  fixLayoutDishes(array: Dish[]): Dish[] {
+    var index = 0;
+    var cols = 4;
+    var x = Math.round(array.length/cols);
+    var layoutArray = new Array(x+1);
+    for(var p = 0; p<x; p++) {
+      layoutArray[p] = new Array(cols);
+      for (var i = 0; i < cols; i++) {
+        if(array[index] != undefined) {
+          layoutArray[p][i] = array[index]
+        }
+        index++;
+      }
+    }
+    return layoutArray;
+  }
 }
