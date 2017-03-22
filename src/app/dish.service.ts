@@ -33,8 +33,6 @@ export class DishService {
 
   setSelectedDish(dish) {
     this.selectedDish = dish;
-    // this.getExtendedDish(id)
-    //   .then(dish => this.selectedDish = dish);
   }
 
   //Returns the dish that is on the menu for selected type

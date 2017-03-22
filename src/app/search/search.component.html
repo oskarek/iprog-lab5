@@ -18,12 +18,18 @@
 	</div>
 </div>
 
-<div *ngFor="let dishRow of dishService.layoutDishes">
-	<div fxLayout="row" style="margin-top:10px" fxLayoutAlign="start center">
-		<div style="margin-left:10px" *ngFor="let dish of dishRow">
-			<div *ngIf="dish != undefined">
-				<dish-card [dish]="dish" (click)="getInfo(dish)"></dish-card>
+<div *ngIf="!dishService.isLoadingDishes">
+	<div *ngFor="let dishRow of dishService.layoutDishes">
+		<div fxLayout="row" style="margin-top:10px" fxLayoutAlign="start center">
+			<div style="margin-left:10px" *ngFor="let dish of dishRow">
+				<div *ngIf="dish != undefined">
+					<dish-card [dish]="dish" (click)="getInfo(dish)"></dish-card>
+				</div>
 			</div>
 		</div>
 	</div>
+</div>
+
+<div *ngIf="dishService.isLoadingDishes" fxLayoutAlign="center start" fxFlex style="margin-top:50px">
+	<md-progress-circle style="height:150px;width:150px" mode="indeterminate" color="primary"></md-progress-circle>
 </div>
