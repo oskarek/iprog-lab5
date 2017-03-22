@@ -1,5 +1,5 @@
 
-<div style="font-family:Palatino;padding:0;background: yellow;overflow:hidden">
+<div style="font-family:Palatino;padding:0;background: #ffe435;overflow:hidden">
 	<div style="margin-left:20px">
 		<h2>SELECT DISH</h2>
 		<div fxLayout="row" fxLayoutAlign="start center">
@@ -7,7 +7,7 @@
 			<md-input-container>
 	  			<input mdInput placeholder="Key word" [(ngModel)]="keyWord">
 			</md-input-container>
-			<button md-raised-button style="margin-left:7px;height:30px;line-height:0" (click)=searchDishes()>Search</button>
+			<button md-raised-button color="primary" style="margin-left:7px;height:30px;line-height:0" (click)=searchDishes()>Search</button>
 
 			<md-select placeholder="Food type" [(ngModel)]="selectedFoodType" style="margin-left:7px">
 				<md-option *ngFor="let foodType of foodTypes" [value]="foodType">
@@ -32,6 +32,10 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<div style="width:100px;height:100px">
+
 </div>
 
 <div *ngIf="dishService.isLoadingDishes" fxLayoutAlign="center start" fxFlex style="margin-top:50px">
