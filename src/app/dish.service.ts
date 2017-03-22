@@ -85,7 +85,7 @@ export class DishService {
       .then(dishes => {
         // update dishes array when download is complete
         this.dishes = dishes
-        this.layoutDishes = fixLayoutDishes(dishes);
+        this.layoutDishes = this.fixLayoutDishes(dishes);
         // also set isLoadingDishes to false
         this.isLoadingDishes = false
       })
