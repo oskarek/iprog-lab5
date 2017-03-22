@@ -1,27 +1,29 @@
-<div fxLayout="row" fxFlex style="overflow:hidden">
-	<my-dinner></my-dinner>
+<div fxLayout="row">
+	<my-dinner fxFlex="280px"></my-dinner>
 
 
-    <div>
-    	<div fxLayout="row" style="width:100%">
-	    	<button md-raised-button routerLink="/select-dish" style="margin: 5% 0 0 5%;height:50px">Back and edit dinner</button>
+    <div *ngIf="dish" fxFlex>
 
-	    	<button fxLayoutAlign="end" md-raised-button routerLink="/select-dish" (click)=addDish() style="margin: 5% 5% 0 5%;height:50px">Add dish to menu</button>
-	    </div>
+		<div class="toplevel-row" fxLayout="row" fxLayoutAlign="start center">
+    		<button fxLayoutAlign="end" md-raised-button routerLink="/select-dish" (click)=addDish() style="margin: 10px 10px 0 10px;height:50px">Add dish to menu</button>
 
-		<div fxLayout="row" fxFlex style="margin: 5% 0 0 5%">
-			<div fxLayout="column">
-				<h4 style="width:150px">{{dish.name}}</h4>
-				<img src="{{dish.imageUrl}}" style="width:150px;height:150px">
-				<div style="width: 250px">
-					<h4>Preparation</h4>
-					<div [innerHTML]="dish.instructions"></div>
+    		<div fxFlex fxLayoutAlign="end center">
+	    		<button md-raised-button routerLink="/select-dish" style="margin-right:20px;height:50px">Back and edit dinner</button>
+    		</div>
+		</div>
+
+		<div fxLayout="row" fxLayoutAlign="start" style="width:100%">
+			<div fxLayout="column" fxFlex style="margin:10px 10px 10px 10px; width:300px">
+				<h4 style="height:50px">{{dish.name}}</h4>
+				<img src="{{dish.imageUrl}}" style="width:250px;height:250px">
+				<div style="max-height:300px;overflow-y:scroll;border:solid 1px;margin-top:15px;">
+					<h4 style="margin-left:10px">Preparation</h4>
+					<div [innerHTML]="dish.instructions" style="margin:0 10px 0 10px;"></div>
 				</div>
 			</div>
 
-			<div style="margin-left:100px;width:300px;border:solid 1px;height:102%">
-				<md-list>
-
+			<div style="margin-right:20px;border:solid 1px;height:100%" fxFlex="400px">
+				<md-list style="margin-bottom:5px">
 					<h3 fxLayoutAlign="center">Ingredients</h3>
 					<md-list-item *ngFor="let ingredient of dish.ingredients" style="height:50px">
 						<h4 md-line style="white-space:normal">{{ingredient.amount * this.dishService.numberOfGuests}} {{ingredient.unit}}   {{ingredient.name}}</h4>
@@ -33,4 +35,7 @@
 		</div>
 	</div>
 
+	<div *ngIf="isLoading" fxLayoutAlign="center start" fxFlex style="margin-top:50px">
+		<md-progress-circle style="height:150px;width:150px" mode="indeterminate" color="primary"></md-progress-circle>
+	</div>
 </div>

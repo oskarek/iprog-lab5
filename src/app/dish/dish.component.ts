@@ -11,7 +11,8 @@ import { DishService } from '../dish.service';
 })
 export class DishComponent implements OnInit {
 
-	dish;
+	dish: Dish;
+	isLoading: boolean = false;
 	constructor(
 	private route: ActivatedRoute,
 	private router: Router,
@@ -19,16 +20,15 @@ export class DishComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.dish = {
-			name: '',
-			imageUrl: "",
-			instructions: ""
-		}
+
 		let id = +this.route.snapshot.params['id'];
 
+		this.isLoading = true;
 		this.dishService.getExtendedDish(id)
 		.then(dish => {
 			this.dish = dish;
+			this.dishService.setSelectedDish(dish);
+			this.isLoading = false;
 		});
 	}
 
