@@ -1,6 +1,6 @@
 
 <div style="font-family:Palatino;padding:0;background: yellow;overflow:hidden">
-	<div style="margin-left:5%">
+	<div style="margin-left:20px">
 		<h2>SELECT DISH</h2>
 		<div fxLayout="row" fxLayoutAlign="start center">
 
@@ -18,21 +18,19 @@
 	</div>
 </div>
 
-<div style="margin:3% 0 0 4.5%">
-	<div *ngFor="let dishRow of dishService.layoutDishes">
-		<div fxLayout="row">
-			<div *ngFor="let dish of dishRow">
-				<div *ngIf="dish != undefined">
-					<md-card class="example-card" style="width:200px;height:250px;padding:10px;">
-						<md-card-header style="overflow:hidden;height:30px">
-							<md-card-title>{{dish.name}}</md-card-title>
-						</md-card-header>
-						<img md-card-image style="margin: 0 2px 0 2px;width:196px;height:150px" src="https://spoonacular.com/recipeImages/{{dish.imageUrl}}">
-						<div fxLayoutAlign="center">
-					      <button md-raised-button (click)="getInfo(dish)" style="margin-top:5px">Dish Info</button>
-					    </div>
-					</md-card>
-				</div>
+<div *ngFor="let dishRow of dishService.layoutDishes">
+	<div fxLayout="row" style="margin-top:10px" fxLayoutAlign="start center">
+		<div *ngFor="let dish of dishRow">
+			<div style="margin-left:10px" *ngIf="dish != undefined">
+				<md-card class="example-card" style="width:200px;height:250px;padding:10px;">
+					<md-card-header style="overflow:hidden;height:30px">
+						<md-card-title>{{dish.name}}</md-card-title>
+					</md-card-header>
+					<img md-card-image style="margin: 0 2px 0 2px;width:196px;height:150px" src="https://spoonacular.com/recipeImages/{{dish.imageUrl}}">
+					<div fxLayoutAlign="center">
+				    <button md-raised-button (click)="getInfo(dish)" style="margin-top:5px">Dish Info</button>
+				  </div>
+				</md-card>
 			</div>
 		</div>
 	</div>
