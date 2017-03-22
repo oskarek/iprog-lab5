@@ -3,37 +3,37 @@
 
 
     <div *ngIf="dish" fxFlex>
-		<div class="toplevel-row" fxLayout="row" fxLayoutAlign="start center" style="margin:10px 20px 20px 10px">
-    		<button fxLayoutAlign="end" md-raised-button routerLink="/select-dish" (click)=addDish() style="height:50px">Add dish to menu</button>
+		<div class="toplevel-row" fxLayout="row" fxLayoutAlign="start center" style="margin:10px 10px 20px 10px">
+    		<button md-raised-button color="primary" routerLink="/select-dish" (click)=addDish() style="height:50px">Add dish to menu</button>
 
     		<div fxFlex fxLayoutAlign="end center">
-	    		<button md-raised-button routerLink="/select-dish" style="height:50px">Back and edit dinner</button>
+	    		<button md-raised-button color="primary" routerLink="/select-dish" style="height:50px">Back and edit dinner</button>
     		</div>
 		</div>
 
 		<div fxLayout="row" fxLayoutAlign="start" style="width:100%">
-			<div fxLayout="column" fxFlex style="margin:10px 25px 10px 10px; width:300px">
-				<h4>{{dish.name}}</h4>
+			<div fxLayout="column" fxFlex style="margin:0px 25px 10px 10px">
+				<h3>{{dish.name | uppercase}}</h3>
 				<img src="{{dish.imageUrl}}" style="width:250px;height:250px">
 				<div class="wrapper" style="max-height:300px;overflow-y:scroll;margin-top:15px;">
 					<h4 style="margin-left:10px">Preparation</h4>
-					<div [innerHTML]="dish.instructions" style="margin:0 10px 0 10px;"></div>
+					<div [innerHTML]="dish.instructions" style="margin:0 10px 10px 10px;"></div>
 				</div>
 			</div>
 
-			<div class="wrapper" style="margin-right:20px;height:100%" fxFlex="400px">
+			<div class="wrapper" style="margin-right:20px;margin-bottom:20px;height:100%" fxFlex="400px">
 				<md-list style="margin-bottom:5px">
-					<h3 fxLayoutAlign="center">Ingredients</h3>
+					<h3 fxLayoutAlign="center">Ingredients for {{dishService.numberOfGuests}} people</h3>
 					<md-list-item *ngFor="let ingredient of dish.ingredients" style="height:50px">
-						<div fxLayout="row" fxLayoutAlign="space-around" style="width:100%"> 
-							<p fxFlex="15">{{(ingredient.amount * this.dishService.numberOfGuests).toFixed(0)}}</p>
-							<p fxFlex="33">{{ingredient.unit}}</p>
+						<div fxLayout="row" style="width:100%">
+							<p fxFlex="35">{{(ingredient.amount * dishService.numberOfGuests).toFixed(0)}} {{ingredient.unit}}</p>
 							<p fxFlex>{{ingredient.name}}</p>
+							<p fxFlex="20" style="text-align:right">${{(ingredient.unitPrice * ingredient.amount * dishService.numberOfGuests).toFixed(0)}}</p>
 						</div>
 	      				<md-divider></md-divider>
 					</md-list-item>
 					<md-list-item>
-						<p fxLayoutAling="end">Total cost: ${{dishService.getPriceForIngredients(dish.ingredients).toFixed(0)}}</p>
+						<p style="width:100%;text-align:right">Total cost: ${{dishService.getPriceForIngredients(dish.ingredients).toFixed(0)}}</p>
 					</md-list-item>
 				</md-list>
 			</div>

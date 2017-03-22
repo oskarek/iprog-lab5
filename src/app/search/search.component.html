@@ -1,5 +1,5 @@
 
-<div style="font-family:Palatino;padding:0;background: yellow;overflow:hidden">
+<div style="font-family:Palatino;padding:0;background:#ffe435;overflow:hidden;border-bottom:2px solid black">
 	<div style="margin-left:20px">
 		<h2>SELECT DISH</h2>
 		<div fxLayout="row" fxLayoutAlign="start center">
@@ -7,7 +7,7 @@
 			<md-input-container>
 	  			<input mdInput placeholder="Key word" [(ngModel)]="keyWord">
 			</md-input-container>
-			<button md-raised-button style="margin-left:7px;height:30px;line-height:0" (click)=searchDishes()>Search</button>
+			<button md-raised-button color="primary" style="margin-left:7px;height:30px;line-height:0" (click)=searchDishes()>Search</button>
 
 			<md-select placeholder="Food type" [(ngModel)]="selectedFoodType" style="margin-left:7px">
 				<md-option *ngFor="let foodType of foodTypes" [value]="foodType">
@@ -19,17 +19,9 @@
 </div>
 
 <div *ngIf="!dishService.isLoadingDishes">
-	<div style="height:99%;overflow-y:scroll">
-		<div *ngFor="let dishRow of dishService.layoutDishes">
-			<div fxLayout="row" style="margin-top:10px" fxLayoutAlign="start center">
-				<div style="margin-left:10px" *ngFor="let dish of dishRow">
-					<div *ngIf="dish != undefined">
-						<dish-card [dish]="dish" (click)="getInfo(dish)">
-							<md-icon md-list-icon style="cursor:pointer" (click)="alert(123)">add</md-icon>
-						</dish-card>
-					</div>
-				</div>
-			</div>
+	<div style="margin-bottom:10px" fxLayout="row" fxLayoutWrap fxLayoutAlign="start center">
+		<div style="margin:10px 0px 0px 10px" *ngFor="let dish of dishService.dishes">
+			<dish-card [dish]="dish" (click)="getInfo(dish)"></dish-card>
 		</div>
 	</div>
 </div>
