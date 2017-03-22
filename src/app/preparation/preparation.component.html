@@ -11,12 +11,12 @@
         </div>
       </div>
     </div>
-    <div class="side-content"  fxFlex="50" fxLayout="column">
-      <div class="preparation-header">
-        PREPARATION
-      </div>
-      <div>
-        {{dish.instructions}}
+    <div class="scroll-box side-content" fxFlex="50" fxLayout="column">
+      <div class="scroll-content">
+        <div class="preparation-header">
+          PREPARATION
+        </div>
+        <div [innerHTML]="dish.instructions"></div>
       </div>
     </div>
   </div>
