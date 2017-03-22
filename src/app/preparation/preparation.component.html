@@ -1,2 +1,23 @@
 <overview-header></overview-header>
-
+<div fxLayout="column" fxLayoutAlign=" center">
+  <div class="dish-info" fxLayout="row" *ngFor="let dish of dishService.dishesInMenu">
+    <div class="side-content" fxFlex="50" fxLayout="row" fxLayoutAlign="start start">
+      <img class="dish-image" fxFlex="150px" src="{{dish.imageUrl}}">
+      <div fxFlex fxLayout="column" fxFlexOffset="20px" fxLayoutAlign="start start">
+        <div class="dish-name">{{dish.name}}</div>
+        <div>
+          Lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
+          lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
+        </div>
+      </div>
+    </div>
+    <div class="side-content"  fxFlex="50" fxLayout="column">
+      <div class="preparation-header">
+        PREPARATION
+      </div>
+      <div>
+        {{dish.instructions}}
+      </div>
+    </div>
+  </div>
+</div>

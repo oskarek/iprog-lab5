@@ -1,7 +1,7 @@
 <div class="my-dinner-box" style="width:99%;">
   <div class="boxcontent">
     <h2>My Dinner</h2><br />
-    <md-select placeholder="Number of guests" [(ngModel)]="this.dishService.numberOfGuests">
+    <md-select placeholder="Number of guests" [(ngModel)]="dishService.numberOfGuests">
       <md-option *ngFor="let n of numberOfGuestsOptions" [value]="n">
         {{ n }}
       </md-option>

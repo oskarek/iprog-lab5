@@ -1,0 +1,26 @@
+.dish-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.dish-image {
+  height: 150px;
+  border: 2px solid black;
+}
+
+.preparation-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.dish-info {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.side-content {
+  margin-left: 50px;
+  margin-right: 50px;
+}
