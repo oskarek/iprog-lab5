@@ -3,12 +3,11 @@
 
 
     <div *ngIf="dish" fxFlex>
-
-		<div class="toplevel-row" fxLayout="row" fxLayoutAlign="start center">
-    		<button fxLayoutAlign="end" md-raised-button routerLink="/select-dish" (click)=addDish() style="margin: 10px 10px 0 10px;height:50px">Add dish to menu</button>
+		<div class="toplevel-row" fxLayout="row" fxLayoutAlign="start center" style="margin:10px 20px 10px 10px">
+    		<button fxLayoutAlign="end" md-raised-button routerLink="/select-dish" (click)=addDish() style="height:50px">Add dish to menu</button>
 
     		<div fxFlex fxLayoutAlign="end center">
-	    		<button md-raised-button routerLink="/select-dish" style="margin-right:20px;height:50px">Back and edit dinner</button>
+	    		<button md-raised-button routerLink="/select-dish" style="height:50px">Back and edit dinner</button>
     		</div>
 		</div>
 
@@ -26,9 +25,15 @@
 				<md-list style="margin-bottom:5px">
 					<h3 fxLayoutAlign="center">Ingredients</h3>
 					<md-list-item *ngFor="let ingredient of dish.ingredients" style="height:50px">
-						<h4 md-line style="white-space:normal">{{ingredient.amount * this.dishService.numberOfGuests}} {{ingredient.unit}}   {{ingredient.name}}</h4>
-	      				<p md-line class="demo-2">$ {{this.dishService.numberOfGuests}}</p>
+						<div fxLayout="row" fxLayoutAlign="space-around" style="width:100%"> 
+							<p fxFlex="15">{{(ingredient.amount * this.dishService.numberOfGuests).toFixed(0)}}</p>
+							<p fxFlex="33">{{ingredient.unit}}</p>
+							<p fxFlex>{{ingredient.name}}</p>
+						</div>
 	      				<md-divider></md-divider>
+					</md-list-item>
+					<md-list-item>
+						<p fxLayoutAling="end">Total cost: $ {{dishService.getPriceForIngredients(dish.ingredients).toFixed(0)}}</p>
 					</md-list-item>
 				</md-list>
 			</div>
