@@ -1,4 +1,7 @@
 <overview-header></overview-header>
+<div class="dish-list" fxLayout="row">
+  <dish-card *ngFor="let dish of dishService.dishesInMenu" [dish]="dish"></dish-card>
+</div>
 <div fxLayoutAlign="center">
   <button md-raised-button routerLink="/preparation" style="margin-top:5px">Print full recipe</button>
 </div>
