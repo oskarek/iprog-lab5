@@ -5,7 +5,7 @@ import { CreateNewDinnerComponent } from './create-new-dinner/create-new-dinner.
 import { MyDinnerComponent } from './my-dinner/my-dinner.component';
 import { SelectDishComponent } from './select-dish/select-dish.component';
 
-import { AboutComponent } from './about/about.component';
+import { DishComponent } from './dish/dish.component';
 import { OverviewComponent } from './overview/overview.component';
 import { PreparationComponent } from './preparation/preparation.component';
 import { TestComponent } from './test/test.component';
@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'create-new-dinner', component: CreateNewDinnerComponent },
 
   { path: 'select-dish', component: SelectDishComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'dish/:id', component: DishComponent },
   { path: 'overview', component: OverviewComponent },
   { path: 'preparation', component: PreparationComponent },
   { path: 'my-dinner', component: MyDinnerComponent },

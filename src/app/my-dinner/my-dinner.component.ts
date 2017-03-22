@@ -8,25 +8,18 @@ import { DishService } from '../dish.service';
   styleUrls: ['./my-dinner.component.css']
 })
 export class MyDinnerComponent implements OnInit {
+  numberOfGuestsOptions = [1,2,3,4,5,6,7,8,9,10,11,12];
+  dishes: Dish[];
 
-  constructor(public dishService: DishService) { }
+  constructor(public dishService: DishService) { 
+    this.dishes = this.dishService.getFullMenu();
+
+  }
 
   ngOnInit() {
   }
 
-  // dishes: Dish[] = [
-  //   {name: 'Garlic bread with lots of ketchup', type: 'appetizer', unitCost: 40},
-  //   {name: 'Hamburger', type: 'main dish', unitCost: 150},
-  //   {name: 'Cake', type: 'dessert', unitCost: 85},
-  // ]
-  numberOfGuestsOptions = [1,2,3,4,5,6,7,8,9,10,11,12];
-
-  getDishes(type: string): Dish[] {
-    return this.dishService.dishes.filter(dish => dish.type == type);
+  deleteDish(dish) {
+    this.dishService.removeDishFromMenu(dish.id);    
   }
-  getTotalCost() {
-    return this.dishService.numberOfGuests * this.dishService.dishes.map(dish=>dish.pricePerServing)
-    .reduce((a,b) => a + b, 0);
-  }
-
 }
