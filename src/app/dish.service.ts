@@ -27,7 +27,6 @@ export class DishService {
   dishesInMenu: Dish[] = [];
   selectedDish = null;
   totalMenuPrice = 0;
-  layoutDishes;
   constructor(private http: Http) { }
 
   setSelectedDish(dish) {
@@ -82,7 +81,6 @@ export class DishService {
       .then(dishes => {
         // update dishes array when download is complete
         this.dishes = dishes
-        this.layoutDishes = this.fixLayoutDishes(dishes);
         // also set isLoadingDishes to false
         this.isLoadingDishes = false
       })
@@ -159,22 +157,5 @@ export class DishService {
     dish.pricePerServing = jsonDishData.pricePerServing as number;
     dish.instructions = jsonDishData.instructions as string;
     return dish;
-  }
-
-  fixLayoutDishes(array: Dish[]): Dish[] {
-    var index = 0;
-    var cols = 4;
-    var x = Math.round(array.length/cols);
-    var layoutArray = new Array(x+1);
-    for(var p = 0; p<x; p++) {
-      layoutArray[p] = new Array(cols);
-      for (var i = 0; i < cols; i++) {
-        if(array[index] != undefined) {
-          layoutArray[p][i] = array[index]
-        }
-        index++;
-      }
-    }
-    return layoutArray;
   }
 }

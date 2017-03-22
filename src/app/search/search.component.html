@@ -19,17 +19,9 @@
 </div>
 
 <div *ngIf="!dishService.isLoadingDishes">
-	<div style="height:99%;overflow-y:scroll">
-		<div *ngFor="let dishRow of dishService.layoutDishes">
-			<div fxLayout="row" style="margin-top:10px" fxLayoutAlign="start center">
-				<div style="margin-left:10px" *ngFor="let dish of dishRow">
-					<div *ngIf="dish != undefined">
-						<dish-card [dish]="dish" (click)="getInfo(dish)">
-							<md-icon md-list-icon style="cursor:pointer" (click)="alert(123)">add</md-icon>
-						</dish-card>
-					</div>
-				</div>
-			</div>
+	<div style="margin-bottom:10px" fxLayout="row" fxLayoutWrap fxLayoutAlign="start center">
+		<div style="margin:10px 0px 0px 10px" *ngFor="let dish of dishService.dishes">
+			<dish-card [dish]="dish" (click)="getInfo(dish)"></dish-card>
 		</div>
 	</div>
 </div>
