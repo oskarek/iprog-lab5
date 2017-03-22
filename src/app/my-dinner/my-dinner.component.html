@@ -12,14 +12,14 @@
     <h3 md-subheader>Menu</h3>
     <md-list-item *ngFor="let dish of this.dishService.dishesInMenu">
       <h4 md-line style="white-space:normal;max-height:50px">{{dish.name}}</h4>
-      <p md-line class="demo-2">$ {{this.dishService.getDishPrice(dish).toFixed(0)}}</p>
+      <p md-line class="demo-2">${{this.dishService.getDishPrice(dish).toFixed(0)}}</p>
       <md-icon md-list-icon style="cursor:pointer" (click)=deleteDish(dish)>delete</md-icon>
     </md-list-item>
 
 
     <md-divider></md-divider>
     <div fxLayoutAlign="center">
-      <h4>Total cost: $ {{this.dishService.getTotalMenuPrice().toFixed(0)}}</h4>
+      <h4>Total cost: ${{this.dishService.getTotalMenuPrice().toFixed(0)}}</h4>
     </div>
     <div fxLayoutAlign="center">
       <button md-raised-button routerLink="/overview" style="margin-top: 25px">Confirm dinner</button>
