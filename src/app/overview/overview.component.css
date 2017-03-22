@@ -1,0 +1,28 @@
+.dish-list {
+  margin: 5px;
+  width: 99%;
+  overflow-x: scroll;
+}
+
+.dish-list-content {
+  margin: 20px;
+  margin-right: 0;
+}
+
+.vertical-divider {
+  border-right: 1px solid darkgray;
+  width: 0px;
+  background-color: darkgray;
+}
+
+.horizontal-divider {
+  border-top: 1px solid darkgray;
+  height: 0px;
+  width: 90%;
+  background-color: darkgray;
+}
+
+.price-tag {
+  margin-top: 10px;
+  color: red;
+}

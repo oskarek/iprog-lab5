@@ -1,7 +1,18 @@
 <overview-header></overview-header>
-<div class="dish-list" fxLayout="row">
-  <dish-card *ngFor="let dish of dishService.dishesInMenu" [dish]="dish"></dish-card>
+<div class="dish-list" fxLayout="row" fxLayoutAlign="start end">
+  <div class="dish-list-content" fxLayout="column" fxLayoutAlign=" end" *ngFor="let dish of dishService.dishesInMenu">
+    <dish-card [dish]="dish"></dish-card>
+    <div class="price-tag">${{dishService.getDishPrice(dish)}}</div>
+  </div>
+  <div class="vertical-divider dish-list-content" fxFlexAlign="stretch"></div>
+  <div class="dish-list-content">
+    <h4>Total</h4>
+    <div class="price-tag">${{dishService.getTotalMenuPrice()}}</div>
+  </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="center">
+  <div class="horizontal-divider"></div>
 </div>
 <div fxLayoutAlign="center">
-  <button md-raised-button routerLink="/preparation" style="margin-top:5px">Print full recipe</button>
+  <button md-raised-button routerLink="/preparation" style="margin-top:15px">Print full recipe</button>
 </div>
