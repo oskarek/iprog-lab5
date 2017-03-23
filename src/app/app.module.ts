@@ -21,7 +21,6 @@ import { DishDetailComponent } from './dish-detail/dish-detail.component';
 import { OverviewComponent } from './overview/overview.component';
 import { PreparationComponent } from './preparation/preparation.component';
 import { OverviewHeaderComponent } from './overview-header/overview-header.component';
-import { TestComponent } from './test/test.component';
 import { DishCardComponent } from './dish-card/dish-card.component';
 
 
@@ -37,7 +36,6 @@ import { DishCardComponent } from './dish-card/dish-card.component';
     OverviewComponent,
     PreparationComponent,
     OverviewHeaderComponent,
-    TestComponent,
     DishCardComponent
 
   ],
