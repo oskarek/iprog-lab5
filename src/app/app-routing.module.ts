@@ -8,7 +8,6 @@ import { SelectDishComponent } from './select-dish/select-dish.component';
 import { DishComponent } from './dish/dish.component';
 import { OverviewComponent } from './overview/overview.component';
 import { PreparationComponent } from './preparation/preparation.component';
-import { TestComponent } from './test/test.component';
 
 
 const routes: Routes = [
@@ -20,8 +19,7 @@ const routes: Routes = [
   { path: 'overview', component: OverviewComponent },
   { path: 'preparation', component: PreparationComponent },
   { path: 'my-dinner', component: MyDinnerComponent },
-  { path: 'select-dish', component: SelectDishComponent },
-  { path: 'test', component: TestComponent }
+  { path: 'select-dish', component: SelectDishComponent }
 ];
 
 @NgModule({
