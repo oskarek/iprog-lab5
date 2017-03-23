@@ -122,7 +122,7 @@ export class DishService {
 
   // handle api errors
   private handleError(error: any): Promise<any> {
-    console.error("An error occured while fetching data", error);
+    alert(`An error occured while fetching data: ${error}`);
     return Promise.reject(error.message || error);
   }
 

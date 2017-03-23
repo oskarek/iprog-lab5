@@ -13,7 +13,7 @@ export class SearchComponent implements OnInit {
 
   constructor(public dishService: DishService, public router: Router) { }
 
-	selectedFoodType: string;
+	selectedFoodType: string = "";
 	keyWord: string;
 
 	foodTypes = ["appetizer", "main course", "dessert",
