@@ -15,7 +15,7 @@
 			<div fxLayout="column" fxFlex style="margin:0px 25px 10px 10px">
 				<h3>{{dish.name | uppercase}}</h3>
 				<img src="{{dish.imageUrl}}" style="width:250px;height:250px">
-				<div class="wrapper" style="max-height:300px;overflow-y:scroll;margin-top:15px;">
+				<div class="wrapper" style="max-height:410px;overflow-y:scroll;margin-top:15px;">
 					<h4 style="margin-left:10px">Preparation</h4>
 					<div [innerHTML]="dish.instructions" style="margin:0 10px 10px 10px;"></div>
 				</div>

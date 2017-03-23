@@ -17,11 +17,9 @@ import { SelectDishComponent } from './select-dish/select-dish.component';
 
 import { SearchComponent } from './search/search.component';
 import { DishComponent } from './dish/dish.component';
-import { DishDetailComponent } from './dish-detail/dish-detail.component';
 import { OverviewComponent } from './overview/overview.component';
 import { PreparationComponent } from './preparation/preparation.component';
 import { OverviewHeaderComponent } from './overview-header/overview-header.component';
-import { TestComponent } from './test/test.component';
 import { DishCardComponent } from './dish-card/dish-card.component';
 
 
@@ -33,11 +31,9 @@ import { DishCardComponent } from './dish-card/dish-card.component';
     SelectDishComponent,
     SearchComponent,
     DishComponent,
-    DishDetailComponent,
     OverviewComponent,
     PreparationComponent,
     OverviewHeaderComponent,
-    TestComponent,
     DishCardComponent
 
   ],
